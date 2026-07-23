@@ -1,0 +1,35 @@
+class Stack:
+    def __init__(self):
+        self.stack=[]
+    def push(self,item):
+        self.stack.append(item)
+        print(f"{item} is pushed")
+    def pop(self):
+        if self.is_empty():
+            return "Stack Underflow"
+        return self.stack.pop()
+    def peek(self):
+        if self.is_empty():
+            return "Stack is Empty"
+        return self.stack[-1]
+    def is_empty(self):
+        return len(self.stack)==0
+    def size(self):
+        return len(self.stack)
+    def display(self):
+        print("Stack elements:",self.stack)
+s=Stack()
+n=int(input("Enter no of elements to push:"))
+for i in range(n):
+    p=int(input(f"Enter {i+1}:"))
+    s.push(p)
+s.display()
+b=s.pop()
+print("Poped element:",b)    
+c=s.is_empty()
+if c:
+    print("Stack has no elements")
+else:
+    print("Stack has elements")
+si=s.size()
+print("Size of the stack:",si)
