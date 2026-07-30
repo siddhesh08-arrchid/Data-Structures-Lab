@@ -1,0 +1,24 @@
+operator=set(['+','-','*','/','(',')','^'])
+priority={'+':1,'-':1,'*':2,'/':2,'^':3}
+def itp(exp):
+    s=[]
+    output=""
+    for ch in exp:
+        if ch not in operator:
+            output+=ch
+        elif ch=='(':
+            s.append('(')
+        elif ch==')':
+            while s and s[-1]!="(":
+                output+=s.pop()
+            s.pop()
+        else:
+            while s and s[-1]!='(' and priority[ch]<=priority[s[-1]]:
+                output+=s.pop()
+            s.append(ch)
+    while s:
+        output+=s.pop()
+    return output
+expression=input("Enter infix expression:")
+result=itp(expression)
+print(f"Result:{result}")
