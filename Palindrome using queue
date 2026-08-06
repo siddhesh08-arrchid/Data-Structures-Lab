@@ -1,0 +1,25 @@
+from collections import deque
+l=[]
+o=""
+c=input("enter a string:")
+for i in c:
+    if i.isalpha():
+        l.append(i)
+        o+=i
+    else:
+        continue
+
+q=deque(l)
+while q:
+    a=l.pop()
+    b=q.popleft()
+    f=0
+    if a==b:
+        continue
+    else:
+        f=1
+        break
+if f==1:
+    print(f"Given string '{o}' is not a palindrome")
+else:
+    print(f"Given string '{o}' is a Palindrome")
