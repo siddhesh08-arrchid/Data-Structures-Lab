@@ -1,0 +1,38 @@
+n=int(input("Enter the Student Marks:"))
+arr=[]
+for i in range(n):
+    a=int(input("Enter Mark:"))
+    arr.append(a)
+
+for i in range(n):
+    min_idx = i
+    for j in range(i + 1, n):
+        if arr[j] < arr[min_idx]:
+            min_idx = j
+    arr[i], arr[min_idx] = arr[min_idx], arr[i]
+print("Selection Sorted array:", arr)
+for i in range(n):
+    swapped = False
+    for j in range(0, n - i - 1):
+        if arr[j] > arr[j + 1]:
+            arr[j], arr[j + 1] = arr[j + 1], arr[j]
+            swapped = True
+    if not swapped:
+        break
+for i in range(n):
+    swapped = False
+    for j in range(0, n - i - 1):
+        if arr[j] > arr[j + 1]:
+            arr[j], arr[j + 1] = arr[j + 1], arr[j]
+            swapped = True
+    if not swapped:
+        break
+print("Bubble Sorted array:", arr)
+for i in range(1, len(arr)):
+    key = arr[i]
+    j = i - 1
+    while j >= 0 and arr[j] > key:
+        arr[j + 1] = arr[j]
+        j -= 1
+    arr[j + 1] = key
+print("Insertion Sorted array:", arr)
